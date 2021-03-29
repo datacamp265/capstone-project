@@ -40,8 +40,8 @@ functions:
     handler: src/lambda/auth/auth0Authorizer.handler
 
   # TODO: Configure this function
-  GetTodos:
-    handler: src/lambda/http/getTodos.handler
+  GetMovies:
+    handler: src/lambda/http/getMovies.handler
     events:
       - http:
           method: get
@@ -59,8 +59,8 @@ functions:
         Resource: arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.MOVIE_TABLE}
 
   # TODO: Configure this function
-  CreateTodo:
-    handler: src/lambda/http/createTodo.handler
+  CreateMovie:
+    handler: src/lambda/http/createMovie.handler
     events:
       - http:
           method: post
@@ -69,7 +69,7 @@ functions:
           authorizer: Auth
           request:
             schema:
-              application/json: ${file(models/create-todo-request.json)}
+              application/json: ${file(models/create-movie-request.json)}
     iamRoleStatements:
       - Effect: Allow
         Action:
@@ -77,8 +77,8 @@ functions:
         Resource: arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.MOVIE_TABLE}  
 
   # TODO: Configure this function
-  UpdateTodo:
-    handler: src/lambda/http/updateTodo.handler
+  UpdateMovie:
+    handler: src/lambda/http/updateMovie.handler
     events:
       - http:
           method: patch
@@ -87,7 +87,7 @@ functions:
           authorizer: Auth
           request:
             schema:
-              application/son: ${file(models/update-todo-request.json)}
+              application/son: ${file(models/update-movie-request.json)}
     iamRoleStatements:
       - Effect: Allow
         Action:
@@ -95,8 +95,8 @@ functions:
         Resource: arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.MOVIE_TABLE}  
 
   # TODO: Configure this function
-  DeleteTodo:
-    handler: src/lambda/http/deleteTodo.handler
+  DeleteMovie:
+    handler: src/lambda/http/deleteMovie.handler
     events:
       - http:
           method: delete

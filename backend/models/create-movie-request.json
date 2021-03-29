@@ -1,18 +1,14 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "title": "createTodo",
+  "title": "createMovie",
   "type": "object",
   "properties": {
-    "name": {
-      "type": "string"
-    },
-    "dueDate": {
+    "title": {
       "type": "string"
     }
   },
   "required": [
-    "name",
-    "dueDate"
+    "title"
   ],
   "additionalProperties": false
 }

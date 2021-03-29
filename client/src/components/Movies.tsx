@@ -104,7 +104,7 @@ export class Movies extends React.PureComponent<MoviesProps, MoviesState> {
   render() {
     return (
       <div>
-        <Header as="h1">MOVIEs</Header>
+        <Header as="h1">MOVIE-WISHLIST</Header>
 
         {this.renderCreateMovieInput()}
 
@@ -122,12 +122,12 @@ export class Movies extends React.PureComponent<MoviesProps, MoviesState> {
               color: 'teal',
               labelPosition: 'left',
               icon: 'add',
-              content: 'New task',
+              content: 'New Movie',
               onClick: this.onMovieCreate
             }}
             fluid
             actionPosition="left"
-            placeholder="To change the world..."
+            placeholder="Movies I like to watch..."
             onChange={this.handleNameChange}
           />
         </Grid.Column>
@@ -171,7 +171,9 @@ export class Movies extends React.PureComponent<MoviesProps, MoviesState> {
               <Grid.Column width={10} verticalAlign="middle">
                 {movie.title}
               </Grid.Column>
-
+              <Grid.Column width={3} floated="right">
+           
+              </Grid.Column>
               <Grid.Column width={1} floated="right">
                 <Button
                   icon
@@ -202,7 +204,8 @@ export class Movies extends React.PureComponent<MoviesProps, MoviesState> {
       </Grid>
     )
   }
-
+}
+/*
   calculateDueDate(): string {
     const date = new Date()
     date.setDate(date.getDate() + 7)
@@ -210,7 +213,7 @@ export class Movies extends React.PureComponent<MoviesProps, MoviesState> {
     return dateFormat(date, 'yyyy-mm-dd') as string
   }
 }
-
+*/
 
           //    <Grid.Column width={3} floated="right">
           //      {todo.dueDate}
