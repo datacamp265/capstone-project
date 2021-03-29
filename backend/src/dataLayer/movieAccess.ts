@@ -15,10 +15,10 @@ export class MovieAccess {
   constructor(
     private readonly docClient: DocumentClient = createDynamoDBClient(),
     private readonly s3 = new XAWS.S3({ signatureVersion: 'v4' }),
-    private readonly movieTable = process.env.TODO_TABLE,
-    private readonly bucketName = process.env.TODO_S3_BUCKET,
+    private readonly movieTable = process.env.MOVIE_TABLE,
+    private readonly bucketName = process.env.MOVIE_S3_BUCKET,
     private readonly urlExpiration = process.env.SIGNED_URL_EXPIRATION,
-    private readonly indexName = process.env.TODO_TABLE_IDX)
+    private readonly indexName = process.env.MOVIE_TABLE_IDX)
     { //
   }
 
