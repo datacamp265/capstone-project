@@ -14,7 +14,7 @@ export const handler: APIGatewayProxyHandler = async (event: APIGatewayProxyEven
     const userId = getUserId(event)
     const uploadUrl = await addAttachmentUrl(userId, movieId)
   
-    // TODO: Return a presigned URL to upload a file for a TODO item with the provided id
+    // TODO: Return a presigned URL to upload a file for a Movie item with the provided id
     return {
       statusCode: 201,
       headers: {

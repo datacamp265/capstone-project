@@ -23,7 +23,7 @@ export class MovieAccess {
   }
 
   async getAllMoviesByUser(userId: string): Promise<MovieItem[]> {
-    logger.info('Getting all todo items by user')
+    logger.info('Getting all movie items by user')
 
     const result = await this.docClient.query({
       TableName: this.movieTable,
@@ -51,12 +51,12 @@ export class MovieAccess {
           movieId: movieId
       },
       UpdateExpression: updateExpression,
-      ConditionExpression: 'todoId = :todoId',
+      ConditionExpression: 'movieId = :movieId',
       ExpressionAttributeValues: {
         ':title': updateMovie.title,
        // ':dueDate': updateMovie.dueDate,
         ':done': updateMovie.done,
-        ':todoId': movieId
+        ':movieId': movieId
       },
       ExpressionAttributeNames: {
         '#t': 'title'
@@ -70,7 +70,7 @@ export class MovieAccess {
   }
 
   async createMovie(createMovie: CreateMovieRequest, userId: string, movieId: string): Promise<MovieItem> {
-    logger.info('Creating a todo with ID ${todoId}')
+    logger.info('Creating a Movie with ID ${movieId}')
     
     const newItem = {
       title: createMovie.title,

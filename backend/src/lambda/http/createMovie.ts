@@ -6,7 +6,7 @@ import { createLogger } from '../../utils/logger'
 import { CreateMovieRequest } from '../../requests/CreateMovieRequest'
 import { createMovieItem } from '../../businessLogic/movies'
 
-const logger = createLogger('create-todo')
+const logger = createLogger('create-movie')
 
 export const handler: APIGatewayProxyHandler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
   

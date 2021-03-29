@@ -4,7 +4,7 @@ import { getUserId } from '../utils'
 import { createLogger } from '../../utils/logger'
 import { getAllMoviesForUser } from '../../businessLogic/movies'
 
-const logger = createLogger('get-todos')
+const logger = createLogger('get-movies')
 
 export const handler: APIGatewayProxyHandler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
     console.log('Caller event', event)
