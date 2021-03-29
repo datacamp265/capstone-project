@@ -19,7 +19,7 @@ provider:
     MOVIE_TABLE_IDX: searchByUserId
     MOVIE_S3_BUCKET: serverless-udagram-movie-datacamp265-${self:provider.stage}
     SIGNED_URL_EXPIRATION: 300
-    JWKS_URL: 'https://dev-isohi138.eu.auth0.com/.well-known/jwks.json' #ändern
+    JWKS_URL: 'https://dev-isohi138.eu.auth0.com/.well-known/jwks.json'
     
   tracing:
     lambda: true
@@ -45,7 +45,7 @@ functions:
     events:
       - http:
           method: get
-          path: todos
+          path: movies
           cors: true
           authorizer: Auth
     iamRoleStatements:
@@ -64,7 +64,7 @@ functions:
     events:
       - http:
           method: post
-          path: todos
+          path: movies
           cors: true
           authorizer: Auth
           request:
@@ -82,7 +82,7 @@ functions:
     events:
       - http:
           method: patch
-          path: todos/{todoId}
+          path: movies/{movieId}
           cors: true
           authorizer: Auth
           request:
@@ -100,7 +100,7 @@ functions:
     events:
       - http:
           method: delete
-          path: todos/{todoId}
+          path: movies/{movieId}
           cors: true
           authorizer: Auth
     iamRoleStatements:
@@ -115,7 +115,7 @@ functions:
     events:
       - http:
           method: post
-          path: todos/{todoId}/attachment
+          path: movies/{movieId}/attachment
           cors: true
     iamRoleStatements:
       - Effect: Allow
@@ -160,7 +160,7 @@ resources:
             KeySchema:
               - AttributeName: userId
                 KeyType: HASH
-              - AttributeName: movieIdd
+              - AttributeName: movieId
                 KeyType: RANGE
             Projection:
               ProjectionType: ALL 
