@@ -1,11 +1,10 @@
 import 'source-map-support/register'
 
 import { APIGatewayProxyEvent, APIGatewayProxyHandler, APIGatewayProxyResult } from 'aws-lambda'
-
-import { UpdateTodoRequest } from '../../requests/UpdateTodoRequest'
-import { updateTodoItem } from '../../businessLogic/todos'
 import { getUserId } from '../utils'
 import { createLogger } from '../../utils/logger'
+import { UpdateMovieRequest } from '../../requests/UpdateMovieRequest'
+import { updateMovieItem } from '../../businessLogic/movies'
 
 const logger = createLogger('update-todos')
 
@@ -14,16 +13,16 @@ export const handler: APIGatewayProxyHandler = async (event: APIGatewayProxyEven
   try {
     
     
-    const updatedTodo: UpdateTodoRequest = JSON.parse(event.body)
+    const updatedMovie: UpdateMovieRequest = JSON.parse(event.body)
     
     //const authorization = event.headers.Authorization
     //const split = authorization.split(' ')
     //const jwtToken = split[1]
   
     const userId = getUserId(event)
-    const todoId = event.pathParameters.todoId
+    const movieId = event.pathParameters.movieId
     
-    const updatedItem = await updateTodoItem(updatedTodo, userId, todoId)
+    const updatedItem = await updateMovieItem(updatedMovie, userId, movieId)
   
     return {
       statusCode: 201,
